@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SRP Infrastructure and Developers | Elite EPC & Civil Construction</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            900: '#0B132B',
+                            800: '#1C2541',
+                            700: '#3A506B',
+                        },
+                        gold: {
+                            DEFAULT: '#C5A059',
+                            dark: '#A3813F',
+                            light: '#DFBD78'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
+
+    <!-- Top Bar -->
+    <div class="bg-navy-900 text-gray-300 text-xs py-2 px-4 border-b border-navy-800">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex items-center space-x-6">
+                <span><i class="fas fa-envelope text-gold mr-2"></i>srpenter01@gmail.com</span>
+                <span><i class="fas fa-phone-alt text-gold mr-2"></i>+91-8800538015, +91-8010809699</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <span><i class="fas fa-map-marker-alt text-gold mr-2"></i>Ghaziabad, UP - 201009</span>
+                <span class="bg-gold text-navy-900 font-semibold px-2 py-0.5 rounded text-[10px]">ISO 9001:2015</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 bg-navy-950 text-gold flex items-center justify-center font-bold text-2xl rounded-lg border-2 border-gold shadow-inner">
+                        SRP
+                    </div>
+                    <div>
+                        <span class="text-xl font-extrabold tracking-tight text-navy-900 block leading-tight">SRP INFRASTRUCTURE</span>
+                        <span class="text-xs font-semibold text-gold tracking-widest uppercase block">& DEVELOPERS</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu Tabs -->
+                <nav class="hidden lg:flex items-center space-x-6 font-medium text-sm text-navy-800">
+                    <button onclick="switchTab('home')" class="nav-link text-gold font-bold hover:text-gold transition pb-1 border-b-2 border-gold" data-target="home">Home</button>
+                    <button onclick="switchTab('about')" class="nav-link hover:text-gold transition pb-1 border-b-2 border-transparent" data-target="about">About Us</button>
+                    <button onclick="switchTab('leadership')" class="nav-link hover:text-gold transition pb-1 border-b-2 border-transparent" data-target="leadership">Leadership</button>
+                    <button onclick="switchTab('vision')" class="nav-link hover:text-gold transition pb-1 border-b-2 border-transparent" data-target="vision">Vision & Values</button>
+                    <button onclick="switchTab('services')" class="nav-link hover:text-gold transition pb-1 border-b-2 border-transparent" data-target="services">Services & Capacity</button>
+                    <button onclick="switchTab('projects')" class="nav-link hover:text-gold transition pb-1 border-b-2 border-transparent" data-target="projects">Projects</button>
+                    <button onclick="switchTab('team')" class="nav-link hover:text-gold transition pb-1 border-b-2 border-transparent" data-target="team">Team</button>
+                    <button onclick="switchTab('contact')" class="bg-gold text-navy-900 px-4 py-2 rounded-md font-semibold hover:bg-gold-light transition shadow-md">Get Quotation</button>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden flex items-center">
+                    <button id="menu-btn" class="text-navy-900 focus:outline-none text-2xl">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t px-4 pt-2 pb-4 space-y-2">
+            <button onclick="switchTab('home'); toggleMobileMenu();" class="block w-full text-left py-2 text-navy-900 font-medium">Home</button>
+            <button onclick="switchTab('about'); toggleMobileMenu();" class="block w-full text-left py-2 text-navy-900 font-medium">About Us</button>
+            <button onclick="switchTab('leadership'); toggleMobileMenu();" class="block w-full text-left py-2 text-navy-900 font-medium">Leadership</button>
+            <button onclick="switchTab('vision'); toggleMobileMenu();" class="block w-full text-left py-2 text-navy-900 font-medium">Vision & Values</button>
+            <button onclick="switchTab('services'); toggleMobileMenu();" class="block w-full text-left py-2 text-navy-900 font-medium">Services & Capacity</button>
+            <button onclick="switchTab('projects'); toggleMobileMenu();" class="block w-full text-left py-2 text-navy-900 font-medium">Projects</button>
+            <button onclick="switchTab('team'); toggleMobileMenu();" class="block w-full text-left py-2 text-navy-900 font-medium">Team</button>
+            <button onclick="switchTab('contact'); toggleMobileMenu();" class="block w-full text-center bg-gold text-navy-900 py-2.5 rounded-md font-semibold mt-2">Get Quotation</button>
+        </div>
+    </header>
+
+    <!-- 1. HOME TAB -->
+    <div id="tab-home" class="tab-content active">
+        <section class="relative bg-navy-900 text-white py-24 lg:py-32 overflow-hidden">
+            <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#C5A059_1px,transparent_1px)] [background-size:16px_16px]"></div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="max-w-3xl">
+                    <span class="text-gold font-semibold uppercase tracking-widest text-sm bg-gold/10 px-3 py-1 rounded border border-gold/30">Excellence in EPC & Civil Construction</span>
+                    <h1 class="text-4xl sm:text-6xl font-extrabold mt-6 leading-tight">
+                        Building Infrastructure with <span class="text-gold">Precision & Trust</span>
+                    </h1>
+                    <p class="mt-6 text-lg text-gray-300 leading-relaxed">
+                        Specialized EPC contractor delivering high-rise civil structures, cross-country pipelines, heavy machinery, turnkey interior finishing, and structural engineering across India.
+                    </p>
+                    <div class="mt-10 flex flex-wrap gap-4">
+                        <button onclick="switchTab('projects')" class="bg-gold text-navy-900 font-bold px-8 py-3.5 rounded-md hover:bg-gold-light transition shadow-lg flex items-center">
+                            Explore Track Record <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                        <button onclick="switchTab('contact')" class="border-2 border-gold text-gold font-bold px-8 py-3.5 rounded-md hover:bg-gold hover:text-navy-900 transition">
+                            Partner With Us
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Bar -->
+        <section class="bg-navy-800 text-white py-10 border-t border-gold/20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="text-3xl lg:text-4xl font-extrabold text-gold">25+</div>
+                    <div class="text-sm text-gray-300 mt-1">Luxury Flats & Penthouses</div>
+                </div>
+                <div>
+                    <div class="text-3xl lg:text-4xl font-extrabold text-gold">12+</div>
+                    <div class="text-sm text-gray-300 mt-1">High-Rise Residential Flats</div>
+                </div>
+                <div>
+                    <div class="text-3xl lg:text-4xl font-extrabold text-gold">10,000+</div>
+                    <div class="text-sm text-gray-300 mt-1">Running Meter Pipelines</div>
+                </div>
+                <div>
+                    <div class="text-3xl lg:text-4xl font-extrabold text-gold">100%</div>
+                    <div class="text-sm text-gray-300 mt-1">Safety & Zero-Harm Record</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 2. ABOUT US TAB -->
+    <div id="tab-about" class="tab-content py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-gold font-semibold uppercase tracking-wider text-sm">About SRP Infrastructure</span>
+                    <h2 class="text-3xl lg:text-4xl font-extrabold text-navy-900 mt-2">Engineering Quality, Delivering Trust Across India</h2>
+                    <div class="w-24 h-1 bg-gold mt-4 mb-6"></div>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        SRP Infrastructure and Developers is a premier EPC and civil construction firm committed to transforming architectural blueprints into robust reality. From high-rise residential finishing in Delhi NCR to large-scale pipeline concrete coatings in Tamil Nadu, our operations are defined by precision, structural safety, and adherence to timelines.
+                    </p>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        Headquartered in Ghaziabad, Uttar Pradesh, our team comprises experienced technocrats, skilled tradesmen, and dynamic project managers who ensure single-point responsibility and complete quality control across all multi-disciplinary scopes.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-gray-50 p-4 border-l-4 border-gold rounded">
+                            <h4 class="font-bold text-navy-900">Registered Office</h4>
+                            <p class="text-xs text-gray-600 mt-1">Vijay Nagar, Ghaziabad, UP - 201009</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 border-l-4 border-gold rounded">
+                            <h4 class="font-bold text-navy-900">Core Expertise</h4>
+                            <p class="text-xs text-gray-600 mt-1">EPC, Pipelines, Interiors & Civil Works</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-navy-900 p-8 rounded-xl text-white shadow-xl relative border border-gold/30">
+                    <h3 class="text-2xl font-bold text-gold mb-4">Why Partner With Us?</h3>
+                    <ul class="space-y-4 text-sm text-gray-300">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gold mt-1 mr-3"></i>
+                            <span>Proven track record across Delhi NCR, Bihar, and Tamil Nadu with major corporate & residential clients.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gold mt-1 mr-3"></i>
+                            <span>Robust machinery and equipment mobilization network ensuring rapid project scale-up.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gold mt-1 mr-3"></i>
+                            <span>Strict adherence to QA/QC standards and zero-harm safety protocols on all sites.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gold mt-1 mr-3"></i>
+                            <span>Transparent execution, cost-effective resource utilization, and strong after-sales support.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. LEADERSHIP TAB (With Real Photos Included) -->
+    <div id="tab-leadership" class="tab-content py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-gold font-semibold uppercase tracking-wider text-sm">Leadership • Direction • Delivery</span>
+                <h2 class="text-3xl lg:text-4xl font-extrabold text-navy-900 mt-2">Messages from Leadership</h2>
+                <div class="w-24 h-1 bg-gold mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <!-- Managing Director Message -->
+                <div class="bg-white border border-gray-200 rounded-xl p-8 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-4 mb-6">
+                            <img src="images/shiv-kumar.jpg" alt="Mr. Shiv Kumar" class="w-20 h-20 rounded-full object-cover border-2 border-gold shadow">
+                            <div>
+                                <h3 class="text-xl font-bold text-navy-900">Mr. Shiv Kumar</h3>
+                                <p class="text-gold font-semibold text-sm">Managing Director</p>
+                            </div>
+                        </div>
+                        <span class="text-xs uppercase font-bold text-gray-500 tracking-wider block mb-2">Message from the Managing Director</span>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                            At SRP Infrastructure and Developers, our foundation is built on trust, engineering excellence, and an unwavering commitment to delivery. Since our inception, we have evolved from a specialized EPC contractor into a versatile infrastructure and building solutions provider.
+                        </p>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                            Whether executing complex cross-country pipelines, high-rise civil structures, or delivering modern, high-end residential interiors, our core focus remains unchanged: delivering world-class quality on schedule with zero compromise on site safety.
+                        </p>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            We extend our sincere gratitude to our valued clients, partners, and workforce whose trust continues to drive our growth. As we expand our footprint across diverse infrastructure domains, we remain dedicated to building long-term value and engineering a better tomorrow.
+                        </p>
+                    </div>
+                    <div class="mt-8 pt-4 border-t border-gray-200 font-bold text-navy-900">Mr. Shiv Kumar <span class="block text-xs font-normal text-gray-500">Managing Director</span></div>
+                </div>
+
+                <!-- General Manager Message -->
+                <div class="bg-white border border-gray-200 rounded-xl p-8 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-4 mb-6">
+                            <img src="images/pradum.jpg" alt="Mr. Pradum Kashyap" class="w-20 h-20 rounded-full object-cover border-2 border-gold shadow">
+                            <div>
+                                <h3 class="text-xl font-bold text-navy-900">Mr. Pradum Kashyap</h3>
+                                <p class="text-gold font-semibold text-sm">General Manager</p>
+                            </div>
+                        </div>
+                        <span class="text-xs uppercase font-bold text-gray-500 tracking-wider block mb-2">Message from the General Manager</span>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                            In today's fast-evolving construction landscape, success is defined by agility, operational discipline, and precision execution. At SRP Infrastructure and Developers, we take pride in our ability to seamlessly mobilize technical expertise, heavy machinery, and skilled manpower for complex EPC and finishing projects.
+                        </p>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                            Our client-centric approach ensures that every project—from large-scale utility pipelines to turnkey high-rise interior fit-outs—is executed with optimal resource efficiency, strict QA/QC standards, and a transparent working culture.
+                        </p>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            We look forward to strengthening our partnerships with industry leaders and continuing to deliver landmark projects that set new benchmarks in quality, safety, and reliability.
+                        </p>
+                    </div>
+                    <div class="mt-8 pt-4 border-t border-gray-200 font-bold text-navy-900">Mr. Pradum Kashyap <span class="block text-xs font-normal text-gray-500">General Manager</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. VISION & VALUES TAB -->
+    <div id="tab-vision" class="tab-content py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-gold font-semibold uppercase tracking-wider text-sm">Vision • Commitment • Delivery</span>
+                <h2 class="text-3xl lg:text-4xl font-extrabold text-navy-900 mt-2">Built for Long-Term Value</h2>
+                <div class="w-24 h-1 bg-gold mx-auto mt-4"></div>
+            </div>
+
+            <div class="bg-navy-900 text-white rounded-xl p-8 mb-12 shadow-lg border-l-4 border-gold">
+                <h3 class="text-gold font-bold text-lg mb-2">Our Vision</h3>
+                <p class="text-gray-200 text-base leading-relaxed">To set an industry benchmark in construction excellence, structural safety and high-quality interior finishing through continuous innovation.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <div class="bg-gray-50 p-6 rounded-lg border border-gray-200"><span class="text-gold font-black text-2xl block mb-2">01</span><h4 class="font-bold text-navy-900 text-lg mb-1">Firm Commitment</h4><p class="text-gray-600 text-sm">Commitment to reliable execution and project schedules.</p></div>
+                <div class="bg-gray-50 p-6 rounded-lg border border-gray-200"><span class="text-gold font-black text-2xl block mb-2">02</span><h4 class="font-bold text-navy-900 text-lg mb-1">Turnkey Engineering</h4><p class="text-gray-600 text-sm">Customized engineering and turnkey project solutions.</p></div>
+                <div class="bg-gray-50 p-6 rounded-lg border border-gray-200"><span class="text-gold font-black text-2xl block mb-2">03</span><h4 class="font-bold text-navy-900 text-lg mb-1">Technical Backup</h4><p class="text-gray-600 text-sm">Experienced technocrats, engineering support and QA/QC compliance.</p></div>
+                <div class="bg-gray-50 p-6 rounded-lg border border-gray-200"><span class="text-gold font-black text-2xl block mb-2">04</span><h4 class="font-bold text-navy-900 text-lg mb-1">Quality Craftsmanship</h4><p class="text-gray-600 text-sm">High standards of material quality and workmanship.</p></div>
+                <div class="bg-gray-50 p-6 rounded-lg border border-gray-200"><span class="text-gold font-black text-2xl block mb-2">05</span><h4 class="font-bold text-navy-900 text-lg mb-1">Cost-Effective Execution</h4><p class="text-gray-600 text-sm">Economical resource utilization and coordinated execution.</p></div>
+                <div class="bg-gray-50 p-6 rounded-lg border border-gray-200"><span class="text-gold font-black text-2xl block mb-2">06</span><h4 class="font-bold text-navy-900 text-lg mb-1">Single-Point Responsibility</h4><p class="text-gray-600 text-sm">Coordinated responsibility across multi-disciplinary scopes.</p></div>
+                <div class="bg-gray-50 p-6 rounded-lg border border-gray-200"><span class="text-gold font-black text-2xl block mb-2">07</span><h4 class="font-bold text-navy-900 text-lg mb-1">After-Sales Support</h4><p class="text-gray-600 text-sm">Strong after-sales and warranty support.</p></div>
+                <div class="bg-gray-50 p-6 rounded-lg border border-gray-200"><span class="text-gold font-black text-2xl block mb-2">08</span><h4 class="font-bold text-navy-900 text-lg mb-1">Zero-Harm Focus</h4><p class="text-gray-600 text-sm">Safety-first approach across high-rise and heavy civil sites.</p></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. SERVICES & CAPACITY TAB -->
+    <div id="tab-services" class="tab-content py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-gold font-semibold uppercase tracking-wider text-sm">Capabilities & Resources</span>
+                <h2 class="text-3xl lg:text-4xl font-extrabold text-navy-900 mt-2">Human Resource & Execution Capacity</h2>
+                <div class="w-24 h-1 bg-gold mx-auto mt-4"></div>
+            </div>
+
+            <!-- HR Table -->
+            <div class="overflow-x-auto mb-16 shadow-md rounded-lg border border-gray-200 bg-white">
+                <table class="w-full text-left border-collapse text-sm">
+                    <thead>
+                        <tr class="bg-navy-900 text-white uppercase text-xs tracking-wider">
+                            <th class="p-4">Resource Category</th>
+                            <th class="p-4">Deployment Capability</th>
+                            <th class="p-4">Typical Role</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200 text-gray-700">
+                        <tr><td class="p-4 font-semibold text-navy-900">Project Managers & Construction Engineers</td><td class="p-4">1 to 5+ according to site volume</td><td class="p-4">Planning, coordination, execution management and project reporting.</td></tr>
+                        <tr><td class="p-4 font-semibold text-navy-900">Project Engineers & Site Supervisors</td><td class="p-4">5 to 10+ per tower / activity</td><td class="p-4">Daily field supervision, quality control and workforce coordination.</td></tr>
+                        <tr><td class="p-4 font-semibold text-navy-900">Safety Officers & HSE Inspectors</td><td class="p-4">4+ per work shift</td><td class="p-4">Safety supervision, toolbox meetings, risk control and corrective actions.</td></tr>
+                        <tr><td class="p-4 font-semibold text-navy-900">Specialized Tradesmen</td><td class="p-4">Scalable per site load</td><td class="p-4">Carpenters, masons, plumbers, electricians, painters and other specialized trades.</td></tr>
+                        <tr><td class="p-4 font-semibold text-navy-900">Skilled / Semi-Skilled / General Labour</td><td class="p-4">50 to 200+ workers</td><td class="p-4">Scalable workforce mobilization according to site requirements.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-gold font-semibold uppercase tracking-wider text-sm">Plant • Machinery • Tools • PPE</span>
+                <h3 class="text-2xl lg:text-3xl font-extrabold text-navy-900 mt-2">Machinery & Equipment Mobilization</h3>
+                <div class="w-24 h-1 bg-gold mx-auto mt-4"></div>
+            </div>
+
+            <!-- Machinery Table -->
+            <div class="overflow-x-auto shadow-md rounded-lg border border-gray-200 bg-white">
+                <table class="w-full text-left border-collapse text-sm">
+                    <thead>
+                        <tr class="bg-navy-900 text-white uppercase text-xs tracking-wider">
+                            <th class="p-4">Equipment Category</th>
+                            <th class="p-4">Mobilization Capability</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200 text-gray-700">
+                        <tr><td class="p-4 font-semibold text-navy-900">Concrete Equipment</td><td class="p-4">Concrete mixer machines and mini batching plants available on demand / 5+ base units.</td></tr>
+                        <tr><td class="p-4 font-semibold text-navy-900">Diesel Generators</td><td class="p-4">15 KVA to 40 KVA DG sets; scalable deployment.</td></tr>
+                        <tr><td class="p-4 font-semibold text-navy-900">Welding & Power</td><td class="p-4">Welding machines, rectifiers and power backup units; 10+ base units.</td></tr>
+                        <tr><td class="p-4 font-semibold text-navy-900">Heavy Trucks & Dumpers</td><td class="p-4">4x4 heavy trucks and dumpers mobilized according to site capacity.</td></tr>
+                        <tr><td class="p-4 font-semibold text-navy-900">Hydra Cranes</td><td class="p-4">14 ton and higher capacity cranes mobilized according to project requirement.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- 6. PROJECTS TAB -->
+    <div id="tab-projects" class="tab-content py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-gold font-semibold uppercase tracking-wider text-sm">Selected Track Record</span>
+                <h2 class="text-3xl lg:text-4xl font-extrabold text-navy-900 mt-2">Completed & Ongoing Projects</h2>
+                <div class="w-24 h-1 bg-gold mx-auto mt-4"></div>
+            </div>
+
+            <div class="overflow-x-auto shadow-md rounded-lg border border-gray-200 mb-12 bg-white">
+                <table class="w-full text-left border-collapse text-sm">
+                    <thead>
+                        <tr class="bg-navy-900 text-white uppercase text-xs tracking-wider">
+                            <th class="p-4">Location / Project</th>
+                            <th class="p-4">Client</th>
+                            <th class="p-4">Scope / Details</th>
+                            <th class="p-4">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200 text-gray-700">
+                        <tr>
+                            <td class="p-4 font-semibold text-navy-900">Express ONE<br><span class="text-xs font-normal text-gray-500">Ghaziabad, Uttar Pradesh</span></td>
+                            <td class="p-4">Individual Flat Owners</td>
+                            <td class="p-4">High-rise residential interior and finishing works.</td>
+                            <td class="p-4"><span class="bg-green-100 text-green-800 text-xs font-bold px-2.5 py-1 rounded">Completed (5 Flats)</span></td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-semibold text-navy-900">ATS Pristine<br><span class="text-xs font-normal text-gray-500">Noida</span></td>
+                            <td class="p-4">Residential Client</td>
+                            <td class="p-4">Turnkey interiors, carpentry, and finishing works.</td>
+                            <td class="p-4"><span class="bg-green-100 text-green-800 text-xs font-bold px-2.5 py-1 rounded">Completed (1 Flat)</span></td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-semibold text-navy-900">16" Dia IOCL Pipeline (PHPL)<br><span class="text-xs font-normal text-gray-500">Chennai, Tamil Nadu</span></td>
+                            <td class="p-4">IOCL / ANG Gas Pipeline Pvt. Ltd.</td>
+                            <td class="p-4">Concrete coating of 50 mm thickness for 1,000 pipe lengths × 12m each.</td>
+                            <td class="p-4"><span class="bg-green-100 text-green-800 text-xs font-bold px-2.5 py-1 rounded">Completed (On Schedule)</span></td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-semibold text-navy-900">T&T Eutopia<br><span class="text-xs font-normal text-gray-500">Ghaziabad, UP</span></td>
+                            <td class="p-4">Residential Client</td>
+                            <td class="p-4">High-rise residential interior and finishing works.</td>
+                            <td class="p-4"><span class="bg-amber-100 text-amber-800 text-xs font-bold px-2.5 py-1 rounded">Work In Progress (2 Flats)</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- 7. TEAM TAB -->
+    <div id="tab-team" class="tab-content py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-gold font-semibold uppercase tracking-wider text-sm">Leadership & Technical Resources</span>
+                <h2 class="text-3xl lg:text-4xl font-extrabold text-navy-900 mt-2">Key Management & Technical Team</h2>
+                <div class="w-24 h-1 bg-gold mx-auto mt-4"></div>
+            </div>
+
+            <div class="overflow-x-auto shadow-md rounded-lg border border-gray-200 mb-10 bg-white">
+                <table class="w-full text-left border-collapse text-sm">
+                    <thead>
+                        <tr class="bg-navy-900 text-white uppercase text-xs tracking-wider">
+                            <th class="p-4">Name</th>
+                            <th class="p-4">Designation</th>
+                            <th class="p-4">Qualification / Experience</th>
+                            <th class="p-4">Key Expertise</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200 text-gray-700">
+                        <tr><td class="p-4 font-semibold text-navy-900">Mr. Shiv Kumar</td><td class="p-4">Managing Director</td><td class="p-4">Undergraduate (12 Years)</td><td class="p-4">Strategic Leadership, Operations Planning, EPC Project Oversight.</td></tr>
+                        <tr><td class="p-4 font-semibold text-navy-900">Mr. Pradum Kashyap</td><td class="p-4">General Manager</td><td class="p-4">Undergraduate (10 Years)</td><td class="p-4">Resource Allocation, Vendor Management, Procurement, Site Administration.</td></tr>
+                        <tr><td class="p-4 font-semibold text-navy-900">Mr. Koshinder</td><td class="p-4">Project Manager</td><td class="p-4">B.Tech (Civil) & MBA (9 Years)</td><td class="p-4">Civil Engineering Design, High-Rise Quality Control, Budget Management.</td></tr>
+                        <tr><td class="p-4 font-semibold text-navy-900">Miss. Priyanka Garg</td><td class="p-4">Architect</td><td class="p-4">B.Arch (15 Years)</td><td class="p-4">Architectural Design & Space Planning, Structural Aesthetics.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- 8. CONTACT TAB (Get Quotation) -->
+    <div id="tab-contact" class="tab-content py-20 bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-gold font-semibold uppercase tracking-wider text-sm">Get In Touch</span>
+                <h2 class="text-3xl lg:text-4xl font-extrabold mt-2">Start Your Project With Us</h2>
+                <div class="w-24 h-1 bg-gold mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold text-gold mb-6">SRP Infrastructure and Developers</h3>
+                    <p class="text-gray-300 mb-8 leading-relaxed">We deliver excellence across India in EPC, civil infrastructure, pipeline concrete coating, and luxury interior finishing. Contact our office for inquiries, quotations, and consultations.</p>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-4"><i class="fas fa-map-marker-alt text-gold text-xl mt-1"></i><div><h4 class="font-bold">Office Address</h4><p class="text-gray-300 text-sm">H.No. 14, Biharipura, Near Sarvodya School, Vijay Nagar Ghaziabad UP Pin-201009</p></div></div>
+                        <div class="flex items-center space-x-4"><i class="fas fa-phone-alt text-gold text-xl"></i><div><h4 class="font-bold">Mobile Numbers</h4><p class="text-gray-300 text-sm">+91-8800538015, +91-8010809699</p></div></div>
+                        <div class="flex items-center space-x-4"><i class="fas fa-envelope text-gold text-xl"></i><div><h4 class="font-bold">Email Address</h4><p class="text-gray-300 text-sm">srpenter01@gmail.com</p></div></div>
+                    </div>
+                </div>
+
+                <div class="bg-navy-900 p-8 rounded-xl border border-gold/30 shadow-xl">
+                    <form id="contact-form" class="space-y-4">
+                        <div><label class="block text-xs font-semibold uppercase text-gray-300 mb-1">Your Name</label><input type="text" required class="w-full bg-navy-800 border border-gray-700 rounded p-3 text-white focus:border-gold focus:outline-none"></div>
+                        <div><label class="block text-xs font-semibold uppercase text-gray-300 mb-1">Email / Phone</label><input type="text" required class="w-full bg-navy-800 border border-gray-700 rounded p-3 text-white focus:border-gold focus:outline-none"></div>
+                        <div><label class="block text-xs font-semibold uppercase text-gray-300 mb-1">Project Scope / Message</label><textarea rows="4" required class="w-full bg-navy-800 border border-gray-700 rounded p-3 text-white focus:border-gold focus:outline-none"></textarea></div>
+                        <button type="submit" class="w-full bg-gold text-navy-900 font-bold py-3.5 rounded hover:bg-gold-light transition">Submit Inquiry</button>
+                    </form>
+                    <div id="form-success" class="hidden mt-4 p-4 bg-green-800 text-white text-center rounded">Thank you! Your message has been sent successfully.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-navy-950 text-gray-400 py-8 border-t border-navy-900 text-center text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p>&copy; 2026 SRP Infrastructure and Developers. All Rights Reserved.</p>
+            <p class="text-xs text-gray-500 mt-2">H.No. 14, Biharipura, Near Sarvodya School, Vijay Nagar Ghaziabad UP - 201009</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Tab Switching -->
+    <script>
+        function switchTab(tabId) {
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            const targetTab = document.getElementById('tab-' + tabId);
+            if (targetTab) {
+                targetTab.classList.add('active');
+            }
+
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                if(link.getAttribute('data-target') === tabId) {
+                    link.classList.add('text-gold', 'font-bold', 'border-gold');
+                    link.classList.remove('border-transparent');
+                } else {
+                    link.classList.remove('text-gold', 'font-bold', 'border-gold');
+                    link.classList.add('border-transparent');
+                }
+            });
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        function toggleMobileMenu() {
+            mobileMenu.classList.add('hidden');
+        }
+
+        const contactForm = document.getElementById('contact-form');
+        const formSuccess = document.getElementById('form-success');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            contactForm.reset();
+            formSuccess.classList.remove('hidden');
+            setTimeout(() => {
+                formSuccess.classList.add('hidden');
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
